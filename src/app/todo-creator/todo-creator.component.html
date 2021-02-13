@@ -11,7 +11,7 @@
 
 <div>
 	<input list="id-project"
- [formControl]="project">
+ [formControl]="project" placeholder="Категория">
 	<datalist id="id-project">
 	  <option *ngFor="let project of ProjectService.projects">{{project.title}}</option>
 	</datalist>
