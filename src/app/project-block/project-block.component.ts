@@ -17,10 +17,7 @@ export class ProjectBlockComponent implements OnInit {
   }
 
   todoChangeState(project: Project, todo: Todo, state: boolean) {
-    let project_id = project.id;
-    let todo_id = todo.id;
-
-    this.ProjectService.todoChangeState(project_id, todo_id, state);
+    this.ProjectService.todoChangeState(project, todo, state);
   }
 
 }

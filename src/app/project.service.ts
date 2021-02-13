@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Project } from './project';
+import { Todo } from './todo';
+import 'reflect-metadata';
+import { plainToClass, classToPlain } from 'class-transformer';
 
 @Injectable({
   providedIn: 'root'
@@ -16,29 +19,37 @@ export class ProjectService {
   projects: Project[] = [];
 
   public updateProjects() {
-    this.http.get(this.projects_url).subscribe((data:any) => this.projects=data);
-  }
-
-  public addTodo(project_title: string, todo_text: string) {
-  	let data_request = {
-  		project: {
-  			title: project_title,
-  		},
-  		todo: {
-  			text: todo_text,
-  		},
-  	};
-
-    this.http.post(this.create_todo, data_request).subscribe((data:any) => {
-      this.updateProjects();
+    this.http.get(this.projects_url).subscribe((data:any) => {
+		this.projects = plainToClass(Project, data);
     });
   }
 
-  public todoChangeState(project_id: number, todo_id: number, state: boolean) {
-    this.http.patch(this.domain + `/projects/${project_id}/todos/${todo_id}`, {
+  public addTodo(project: Project, todo: Todo) {
+  	let data_request = {
+  		project: classToPlain(project),
+  		todo: classToPlain(todo),
+  	};
+
+    this.http.post(this.create_todo, data_request).subscribe((data:any) => {
+
+      if( project.id == 0 ) {
+      	project = plainToClass(Project, [data.project])[0];
+  		this.projects.push(project);
+      }
+
+      todo = plainToClass(Todo, [data.todo])[0];
+
+      project.todos.push(todo);
+
+      console.log(project);
+    });
+  }
+
+  public todoChangeState(project: Project, todo: Todo, state: boolean) {
+    this.http.patch(this.domain + `/projects/${project.id}/todos/${todo.id}`, {
       "state": state,
     }).subscribe((data:any) => {
-      this.updateProjects();
+    	todo = plainToClass(Todo, data)[0];
     });
   }
 }

@@ -2,7 +2,7 @@
 $block_width: 300px;
 
 .project-block {
-	width: $block_width;
+	min-width: $block_width;
 	display: inline-block;
 	position: relative;
 	margin: 30px;

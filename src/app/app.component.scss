@@ -17,16 +17,29 @@ $background: #3aafda;
   background-color: #00000000;
 }
 
-body {
+#app {
   background: whitesmoke;
+  padding-top: 70px;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: scroll;
 }
 
 ::ng-deep .mat-dialog-container {
   background: #fff;
 }
 
+app-project-block {
+  padding: 0 30px;
+}
+
 mat-toolbar, mat-dialog-container {
   background: $background;
+  position: fixed;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  z-index: 1;
 }
 
 .center {
@@ -34,7 +47,7 @@ mat-toolbar, mat-dialog-container {
   width: 100%;
 }
 
-mat-toolbar .title {
+  bar .title {
   text-align: 16pt;
   margin: 0;
 }
