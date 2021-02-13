@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  list-style-type: none;
+}
+
+$background: #3aafda;
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: #00000000!important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #00000000;
+}
+
+body {
+  background: whitesmoke;
+}
+
+::ng-deep .mat-dialog-container {
+  background: #fff;
+}
+
+mat-toolbar, mat-dialog-container {
+  background: $background;
+}
+
+.center {
+  text-align: center;
+  width: 100%;
+}
+
+mat-toolbar .title {
+  text-align: 16pt;
+  margin: 0;
+}
+
+.example-icon {
+  background-color:transparent;
+  border:0;
+  float:right;
+  position: absolute;
+  right: 15px;
+}
+
+mat-toolbar .material-icons {
+  color: #fefefe;
+  font-size: 30pt;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+  border: 0;
+}

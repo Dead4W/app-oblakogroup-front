@@ -1,0 +1,9 @@
+<div *ngFor="let project of ProjectService.projects" class="project-block">
+
+  <h2>{{project.title}}</h2>
+  <div class="project-todos" *ngFor="let todo of project.todos">
+  	<mat-checkbox class="" [checked]="todo.isCompleted" (change)="todoChangeState(project, todo, todo.isCompleted = !todo.isCompleted)"></mat-checkbox>
+    <label [ngClass]="{'line-through': todo.isCompleted === true}">{{todo.text}}</label>
+  </div>
+
+</div>

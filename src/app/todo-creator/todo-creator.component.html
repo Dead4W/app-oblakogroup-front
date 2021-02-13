@@ -1,0 +1,32 @@
+
+<div>
+	<h2>
+		Новая задача
+	</h2>
+</div>
+
+<div>
+  <input type="text" [formControl]="todo" placeholder="Название задачи...">
+</div>
+
+<div>
+	<input list="id-project"
+ [formControl]="project">
+	<datalist id="id-project">
+	  <option *ngFor="let project of ProjectService.projects">{{project.title}}</option>
+	</datalist>
+</div>
+
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Отмена</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button [mat-dialog-close]="true" (click)="onSubmit()"  class="button-save">ОК</button>
+</mat-dialog-actions>
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->

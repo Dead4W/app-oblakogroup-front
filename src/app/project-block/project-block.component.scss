@@ -1,0 +1,62 @@
+
+$block_width: 200px;
+
+.project-block {
+	width: $block_width;
+	display: inline-block;
+	position: relative;
+	margin: 30px;
+	background: #fff;
+	padding: 8pt;
+    box-shadow: 0 2px 6px 0px rgb(0 0 0 / 50%);
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: #3aafda!important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #3aafda;
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: #ddd;
+}
+::ng-deep .mat-checkbox .mat-checkbox-checkmark-path {
+  stroke: #fff!important;
+  stroke-width: 4px;
+}
+
+h2 {
+	border-bottom: 1px solid #ddd;
+	font-size: 12pt;
+	text-transform: uppercase;
+}
+
+.mat-checkbox {
+	margin: 5px 10px;
+	padding: 1px;
+	width: 17px;
+	height: 17px;
+	position: absolute;
+	left: 0;
+	z-index: 1;
+}
+
+.project-todos {
+	min-height: 22px;
+	position: relative;
+	overflow: hidden;
+}
+
+.project-todos label {
+	padding: 6px 0 6px 40px;
+	display: inline-block;
+	float: left;
+	position: relative;
+}
+
+.line-through {
+	text-decoration: line-through;
+}
